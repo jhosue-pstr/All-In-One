@@ -1,0 +1,68 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: cms_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-cms_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cms_pass}
+      POSTGRES_DB: ${POSTGRES_DB:-cms_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - cms_network
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U ${POSTGRES_USER:-cms_user} -d ${POSTGRES_DB:-cms_db}",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:latest
+    container_name: cms_Adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - cms_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  backend:
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile
+    container_name: cms_backend
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://${POSTGRES_USER:-cms_user}:${POSTGRES_PASSWORD:-cms_pass}@postgres:5432/${POSTGRES_DB:-cms_db}
+    networks:
+      - cms_network
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: dockerfile
+    container_name: cms_frontend
+    ports:
+      - "5173:5173"
+    networks:
+      - cms_network
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
+
+networks:
+  cms_network:
+    driver: bridge
