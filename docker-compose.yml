@@ -35,7 +35,7 @@ services:
 
   backend:
     build:
-      context: ./Backend
+      context: ./apps/api
       dockerfile: Dockerfile
     container_name: cms_backend
     ports:
@@ -50,8 +50,8 @@ services:
 
   frontend:
     build:
-      context: ./Frontend
-      dockerfile: dockerfile
+      context: ./apps/web
+      dockerfile: Dockerfile
     container_name: cms_frontend
     ports:
       - "5173:5173"
