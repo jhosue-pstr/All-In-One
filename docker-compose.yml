@@ -3,9 +3,9 @@ services:
     image: postgres:16-alpine
     container_name: cms_postgres
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-cms_user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-cms_pass}
-      POSTGRES_DB: ${POSTGRES_DB:-cms_db}
+      POSTGRES_USER: jpastor
+      POSTGRES_PASSWORD: "123"
+      POSTGRES_DB: cms_db
     ports:
       - "5432:5432"
     volumes:
@@ -16,7 +16,7 @@ services:
       test:
         [
           "CMD-SHELL",
-          "pg_isready -U ${POSTGRES_USER:-cms_user} -d ${POSTGRES_DB:-cms_db}",
+          "pg_isready -U jpastor -d cms_db",
         ]
       interval: 10s
       timeout: 5s
@@ -25,6 +25,8 @@ services:
   adminer:
     image: adminer:latest
     container_name: cms_Adminer
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
     ports:
       - "8080:8080"
     networks:
@@ -41,7 +43,13 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER:-cms_user}:${POSTGRES_PASSWORD:-cms_pass}@postgres:5432/${POSTGRES_DB:-cms_db}
+      POSTGRES_USER: jpastor
+      POSTGRES_PASSWORD: "123"
+      POSTGRES_SERVER: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_DB: cms_db
+      DATABASE_URL: postgresql+asyncpg://jpastor:123@postgres:5432/cms_db
+      SECRET_KEY: super-secret-jwt-key-change-in-production
     networks:
       - cms_network
     depends_on:
