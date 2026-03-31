@@ -1,9 +1,9 @@
 from sqlalchemy import String, Text, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
-from app.models.base import BaseModel
+from packages.core.models.base import BaseModel, TimestampMixin
 
 
-class Component(BaseModel):
+class Component(BaseModel, TimestampMixin):
     __tablename__ = "components"
 
     name: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)

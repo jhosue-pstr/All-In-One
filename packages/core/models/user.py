@@ -1,9 +1,9 @@
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from app.models.base import BaseModel
+from packages.core.models.base import BaseModel, TimestampMixin
 
 
-class User(BaseModel):
+class User(BaseModel, TimestampMixin):
     __tablename__ = "users"
 
     email: Mapped[str] = mapped_column(String(255), unique=True, index=True, nullable=False)
@@ -13,6 +13,3 @@ class User(BaseModel):
     role: Mapped[str] = mapped_column(String(50), default="user")
 
     sites: Mapped[list["Site"]] = relationship("Site", back_populates="owner", cascade="all, delete-orphan")
-
-
-from app.models.site import Site

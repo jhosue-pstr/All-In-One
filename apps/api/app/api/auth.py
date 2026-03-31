@@ -1,9 +1,14 @@
+import sys
+import os
+sys.path.insert(0, "/app")
+sys.path.insert(0, "/app/packages")
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from app.db.database import get_db
-from app.models.user import User
-from app.schemas.user import UserCreate, UserLogin, UserResponse, TokenResponse
+from packages.core.models.user import User
+from packages.core.schemas.user import UserCreate, UserLogin, UserResponse, TokenResponse
 from app.core.security import (
     get_password_hash,
     verify_password,

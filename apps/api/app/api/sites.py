@@ -1,11 +1,16 @@
+import sys
+import os
+sys.path.insert(0, "/app")
+sys.path.insert(0, "/app/packages")
+
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from typing import List
 from app.db.database import get_db
-from app.models.user import User
-from app.models.site import Site
-from app.schemas.site import SiteCreate, SiteResponse
+from packages.core.models.user import User
+from packages.core.models.site import Site
+from packages.core.schemas.site import SiteCreate, SiteResponse
 from app.core.security import get_current_user
 
 router = APIRouter(prefix="/sites", tags=["sites"])

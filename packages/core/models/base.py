@@ -1,11 +1,17 @@
 from datetime import datetime
 from typing import Optional
-from sqlalchemy import DateTime, Boolean, func
+from sqlalchemy import DateTime, Boolean, Integer, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
 class Base(DeclarativeBase):
     pass
+
+
+class BaseModel(Base):
+    __abstract__ = True
+    
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
 
 
 class TimestampMixin:

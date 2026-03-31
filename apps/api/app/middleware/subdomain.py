@@ -3,8 +3,8 @@ from starlette.requests import Request
 from starlette.responses import Response, HTMLResponse
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
-from app.models.site import Site
-from app.models.page import Page
+from packages.core.models.site import Site
+from packages.core.models.page import Page
 
 
 def extract_subdomain(host: str) -> str | None:

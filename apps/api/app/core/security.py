@@ -8,8 +8,8 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select
 from app.core.config import get_settings
 from app.db.database import get_db
-from app.models.user import User
-from app.schemas.user import TokenData
+from packages.core.models.user import User
+from packages.core.schemas.user import TokenData
 
 settings = get_settings()
 

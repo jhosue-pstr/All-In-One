@@ -37,8 +37,8 @@ services:
 
   backend:
     build:
-      context: ./apps/api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: apps/api/Dockerfile
     container_name: cms_backend
     ports:
       - "8000:8000"

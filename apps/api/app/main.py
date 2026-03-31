@@ -1,9 +1,14 @@
+import sys
+import os
+sys.path.insert(0, "/app")
+sys.path.insert(0, "/app/packages")
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from app.api import auth_router, sites_router, pages_router, public_router
 from app.db.database import engine
-from app.models import Base
+from packages.core.models import Base
 
 
 @asynccontextmanager
