@@ -11,18 +11,6 @@ from packages.core.schemas.site import (
     SiteCreate,
     SiteResponse,
 )
-from packages.core.schemas.page import (
-    PageBase,
-    PageCreate,
-    PageUpdate,
-    PageResponse,
-    PageListResponse,
-)
-from packages.core.schemas.component import (
-    ComponentBase,
-    ComponentCreate,
-    ComponentResponse,
-)
 
 __all__ = [
     "UserBase",
@@ -34,12 +22,4 @@ __all__ = [
     "SiteBase",
     "SiteCreate",
     "SiteResponse",
-    "PageBase",
-    "PageCreate",
-    "PageUpdate",
-    "PageResponse",
-    "PageListResponse",
-    "ComponentBase",
-    "ComponentCreate",
-    "ComponentResponse",
 ]

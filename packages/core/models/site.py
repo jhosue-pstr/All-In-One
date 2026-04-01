@@ -11,4 +11,3 @@ class Site(BaseModel, TimestampMixin):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), nullable=False)
 
     owner: Mapped["User"] = relationship("User", back_populates="sites")
-    pages: Mapped[list["Page"]] = relationship("Page", back_populates="site", cascade="all, delete-orphan")

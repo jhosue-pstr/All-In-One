@@ -5,6 +5,7 @@ import Register from "./components/register/register";
 import Dashboard from "./pages/dashboard/dashboard";
 import SitioWeb from "./pages/sitioWeb/sitioWeb";
 import Modulos from "./pages/modulos/modulos";
+import WebEditor from "./pages/webEditor/webEditor";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/sitioWeb" element={<SitioWeb />} />
         <Route path="/modulos" element={<Modulos />} />
+        <Route path="/webEditor" element={<WebEditor />} />
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>

@@ -31,7 +31,7 @@ function Sidebar() {
           <span className="icon">📦</span>
           Módulos
         </li>
-        <li>
+        <li onClick={() => navigate("/webEditor")}>
           <span className="icon">⚙️</span>
           Configuración
         </li>
