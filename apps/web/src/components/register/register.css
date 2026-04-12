@@ -62,8 +62,10 @@
 .card-register .card-footer .btn-register {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: white;
+  /* 👇 CORRECCIÓN: Color de fondo sólido oscuro y gradiente súper oscuro (Contraste > 6.0:1) */
+  background-color: #065f46; 
+  background-image: linear-gradient(135deg, #065f46 0%, #064e3b 100%);
+  color: #ffffff;
   border: none;
   border-radius: 10px;
   font-size: 16px;
@@ -74,7 +76,8 @@
 
 .card-register .card-footer .btn-register:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  /* 👇 CORRECCIÓN: Sombra ajustada al nuevo verde oscuro */
+  box-shadow: 0 8px 25px rgba(6, 95, 70, 0.4);
 }
 
 .card-register .card-footer .link-text {
@@ -83,7 +86,8 @@
 }
 
 .card-register .card-footer .link-text a {
-  color: #10b981;
+  /* 👇 CORRECCIÓN: Verde muy oscuro para el enlace sobre el fondo blanco */
+  color: #065f46;
   text-decoration: none;
   font-weight: 600;
 }

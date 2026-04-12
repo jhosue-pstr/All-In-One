@@ -62,7 +62,8 @@
 .card-login .card-footer .btn-login {
   width: 100%;
   padding: 14px;
-  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  /* 👇 CORRECCIÓN: Gradiente más oscuro para que el texto blanco cumpla el contraste mínimo (4.5:1) */
+  background: linear-gradient(135deg, #4f46e5 0%, #6d28d9 100%);
   color: white;
   border: none;
   border-radius: 10px;
@@ -74,7 +75,8 @@
 
 .card-login .card-footer .btn-login:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+  /* 👇 CORRECCIÓN Opcional: También ajustamos la sombra para que coincida con el nuevo tono */
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
 }
 
 .card-login .card-footer .link-text {
@@ -83,7 +85,7 @@
 }
 
 .card-login .card-footer .link-text a {
-  color: #6366f1;
+  color: #4f46e5; /* 👈 Alineado al nuevo color del botón */
   text-decoration: none;
   font-weight: 600;
 }
@@ -104,5 +106,5 @@
 }
 
 .card-login .forgot-password a:hover {
-  color: #6366f1;
+  color: #4f46e5; /* 👈 Alineado al nuevo color */
 }

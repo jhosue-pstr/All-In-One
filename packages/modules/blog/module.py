@@ -28,12 +28,15 @@ class Module(ABC):
         pass
 
     def on_activate(self, site_id: int, db: "Session", config: dict):
+        # Método opcional. El módulo no requiere acciones adicionales al activarse.
         pass
 
     def on_deactivate(self, site_id: int, db: "Session"):
+        # Método opcional. El módulo no requiere acciones adicionales al desactivarse.
         pass
 
     def on_install(self, db: "Session"):
+        # Método opcional. El módulo no requiere acciones adicionales al instalarse.
         pass
 
     def get_admin_menu(self) -> list[dict]:

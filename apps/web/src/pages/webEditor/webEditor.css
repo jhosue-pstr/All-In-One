@@ -1,3 +1,6 @@
+/* 1. IMPORTAR FONT AWESOME PARA LOS ÍCONOS DE LOS BLOQUES */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
 .editor-container {
   height: 100vh;
   display: flex;
@@ -109,6 +112,8 @@
   height: 100%;
   background: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  /* 👇 CORRECCIÓN: Trajimos el border: none que estaba suelto más abajo */
+  border: none;
 }
 
 .panel__right {
@@ -125,6 +130,53 @@
   padding: 10px;
 }
 
+/* 2. MEJORAS EN LA VISTA DE LOS BLOQUES */
+.gjs-blocks-c {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Pone los bloques en 2 columnas */
+  gap: 10px;
+}
+
+.gjs-block {
+  width: 100%;
+  height: auto;
+  min-height: 80px;
+  margin-bottom: 0;
+  background: #34495e;
+  border: 1px solid #4a5f7f;
+  border-radius: 5px;
+  padding: 15px 10px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gjs-block:hover {
+  background: #3d566e;
+  border-color: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Estilo para los íconos de FontAwesome dentro del bloque */
+.gjs-block::before {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: #3498db; /* Azul característico para los íconos */
+}
+
+/* Estilo para el texto del bloque */
+.gjs-block-label {
+  font-size: 12px;
+  font-family: sans-serif;
+  line-height: 1.2;
+}
+
 .layers-container,
 .styles-container,
 .traits-container {
@@ -134,35 +186,12 @@
   background: #2c3e50;
 }
 
-.gjs-block {
-  width: 100%;
-  height: auto;
-  min-height: 50px;
-  margin-bottom: 10px;
-  background: #34495e;
-  border: 2px dashed #4a5f7f;
-  border-radius: 5px;
-  padding: 15px;
-  color: white;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.gjs-block:hover {
-  background: #3d566e;
-  border-color: #3498db;
-  transform: translateY(-2px);
-}
-
 .gjs-block-section {
   background: #1abc9c;
   border-color: #16a085;
 }
 
-#gjs {
-  border: none;
-}
+/* 👇 SE ELIMINÓ EL #gjs DUPLICADO DE AQUÍ */
 
 .gjs-cv-canvas {
   top: 0;

@@ -43,28 +43,28 @@
   flex-grow: 1;
 }
 
+/* Nota: Como ahora usamos <button> dentro de <li>, los estilos se aplican al pasar el ratón */
 .sidebar .nav-menu li {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 14px 24px;
   color: #94a3b8;
   font-size: 15px;
   font-weight: 500;
-  cursor: pointer;
   transition: all 0.3s ease;
   border-left: 3px solid transparent;
 }
 
 .sidebar .nav-menu li:hover {
-  background: rgba(99, 102, 241, 0.1);
-  color: #c7d2fe;
+  /* 👇 CORRECCIÓN: Color sólido oscuro en lugar de RGBA para que SonarCloud calcule el contraste */
+  background: #312e81; 
+  color: #ffffff;
   border-left-color: #6366f1;
 }
 
 .sidebar .nav-menu li.active {
-  background: rgba(99, 102, 241, 0.15);
-  color: #a5b4fc;
+  /* 👇 CORRECCIÓN: Color sólido oscuro (índigo intenso) */
+  background: #3730a3; 
+  color: #ffffff;
   border-left-color: #818cf8;
 }
 
@@ -86,7 +86,8 @@
 }
 
 .sidebar .logout-section li:hover {
-  background: rgba(248, 113, 113, 0.1);
-  color: #fca5a5;
+  /* 👇 CORRECCIÓN: Color sólido oscuro (rojo intenso) en lugar de RGBA */
+  background: #7f1d1d; 
+  color: #ffffff;
   border-left-color: #ef4444;
 }

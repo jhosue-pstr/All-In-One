@@ -1,5 +1,5 @@
 from packages.modules.blog.module import Module
-
+from packages.modules.blog.models import Category, Post
 
 class BlogModule(Module):
     name = "Blog"

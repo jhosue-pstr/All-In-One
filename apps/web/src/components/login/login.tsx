@@ -37,8 +37,10 @@ function Login() {
 
           <form onSubmit={handleSubmit}>
             <div className="form-group">
-              <label>Correo electrónico</label>
+              {/* 👇 CORRECCIÓN 1: Asociamos el label al input usando htmlFor e id */}
+              <label htmlFor="email">Correo electrónico</label>
               <input
+                id="email"
                 type="email"
                 placeholder="ejemplo@correo.com"
                 value={email}
@@ -48,8 +50,10 @@ function Login() {
             </div>
 
             <div className="form-group">
-              <label>Contraseña</label>
+              {/* 👇 CORRECCIÓN 2: Asociamos el label al input usando htmlFor e id */}
+              <label htmlFor="password">Contraseña</label>
               <input
+                id="password"
                 type="password"
                 placeholder="••••••••"
                 value={password}
@@ -68,7 +72,8 @@ function Login() {
               </p>
 
               <p className="forgot-password">
-                <a href="#">¿Olvidaste tu contraseña?</a>
+                {/* 👇 CORRECCIÓN 3: Cambiamos href="#" por una ruta válida */}
+                <a href="/forgot-password">¿Olvidaste tu contraseña?</a>
               </p>
             </div>
           </form>

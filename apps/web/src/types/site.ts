@@ -1,4 +1,5 @@
 export interface Site {
+  settings(settings: any): unknown;
   id: number;
   name: string;
   slug: string;

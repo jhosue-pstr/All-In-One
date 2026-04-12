@@ -42,7 +42,8 @@
 }
 
 .btn-primary {
-  background: #3b82f6;
+  /* 👇 CORRECCIÓN 1: Azul más oscuro (#1d4ed8) para garantizar contraste >4.5:1 con texto blanco */
+  background: #1d4ed8;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -53,7 +54,8 @@
 }
 
 .btn-primary:hover {
-  background: #2563eb;
+  /* 👇 Mantenemos la armonía oscureciendo también el hover */
+  background: #1e40af;
 }
 
 .btn-secondary {
@@ -207,7 +209,8 @@
 
 .error-message {
   background: #fee2e2;
-  color: #dc2626;
+  /* 👇 CORRECCIÓN 2: Rojo más profundo (#b91c1c) para cumplir contraste con el fondo claro */
+  color: #b91c1c;
   padding: 12px;
   border-radius: 8px;
   margin-bottom: 16px;
@@ -290,7 +293,8 @@
   border-left: none;
   padding: 10px 12px;
   border-radius: 0 8px 8px 0;
-  color: #64748b;
+  /* 👇 CORRECCIÓN 3: Gris más oscuro (#475569) para que destaque bien sobre el fondo claro (#f1f5f9) */
+  color: #475569;
   font-size: 14px;
   white-space: nowrap;
 }

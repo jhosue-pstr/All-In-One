@@ -63,8 +63,10 @@ function Register() {
           <form onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label>Nombre</label>
+                {/* 👇 CORRECCIÓN 1: Label vinculado al input */}
+                <label htmlFor="first_name">Nombre</label>
                 <input
+                  id="first_name"
                   type="text"
                   name="first_name"
                   placeholder="Tu nombre"
@@ -75,8 +77,10 @@ function Register() {
               </div>
 
               <div className="form-group">
-                <label>Apellido</label>
+                {/* 👇 CORRECCIÓN 2: Label vinculado al input */}
+                <label htmlFor="last_name">Apellido</label>
                 <input
+                  id="last_name"
                   type="text"
                   name="last_name"
                   placeholder="Tu apellido"
@@ -88,8 +92,10 @@ function Register() {
             </div>
 
             <div className="form-group">
-              <label>Correo electrónico</label>
+              {/* 👇 CORRECCIÓN 3: Label vinculado al input */}
+              <label htmlFor="email">Correo electrónico</label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 placeholder="ejemplo@correo.com"
@@ -100,8 +106,10 @@ function Register() {
             </div>
 
             <div className="form-group">
-              <label>Contraseña</label>
+              {/* 👇 CORRECCIÓN 4: Label vinculado al input */}
+              <label htmlFor="password">Contraseña</label>
               <input
+                id="password"
                 type="password"
                 name="password"
                 placeholder="••••••••"
@@ -112,8 +120,10 @@ function Register() {
             </div>
 
             <div className="form-group">
-              <label>Confirmar contraseña</label>
+              {/* 👇 CORRECCIÓN 5: Label vinculado al input */}
+              <label htmlFor="confirmPassword">Confirmar contraseña</label>
               <input
+                id="confirmPassword"
                 type="password"
                 name="confirmPassword"
                 placeholder="••••••••"

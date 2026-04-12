@@ -28,12 +28,15 @@ class Module(ABC):
         pass
 
     def on_activate(self, site_id: int, db: "Session", config: dict):
+        # Método opcional (hook). Las clases hijas pueden sobrescribirlo si necesitan lógica de activación.
         pass
 
     def on_deactivate(self, site_id: int, db: "Session"):
+        # Método opcional (hook). Las clases hijas pueden sobrescribirlo si necesitan lógica de desactivación.
         pass
 
     def on_install(self, db: "Session"):
+        # Método opcional (hook). Las clases hijas pueden sobrescribirlo si necesitan lógica de instalación inicial.
         pass
 
     def get_admin_menu(self) -> list[dict]:
