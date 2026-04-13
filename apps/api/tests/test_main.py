@@ -15,6 +15,5 @@ def test_docs_exist():
     assert response.status_code == 200
 
 def test_openapi_schema_exists():
-    # Prueba que el esquema de rutas se genere correctamente
     response = client.get("/openapi.json")
     assert response.status_code == 200
